@@ -17,18 +17,6 @@ class Main {
   
   public static void main(String[] args) {
 
-    IRevisionRepository revisionRepo = new RevisionRepository();
-    INotificationRepository notificationRepo = new NotificationRepository();
-    
-    IRevisionService revisionService = new RevisionService(revisionRepo);
-    INotificationService notificationService = new NotificationService(notificationRepo);
-    
-    IDefectService service = new DefectService(revisionService, notificationService);
-    List<Defect> defects = service.defectWorkbenchByDate(LocalDate.now());
-
-    for (Defect defect : defects) {
-        System.out.println(defect.getNotificationId());
-    };
   }
   
 }
