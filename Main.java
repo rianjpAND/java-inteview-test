@@ -12,11 +12,20 @@ import Repository.Revisions.RevisionRepository;
 import Repository.Notifications.NotificationRepository;
 import Repository.Notifications.INotificationRepository;
 
-
 class Main {
   
   public static void main(String[] args) {
 
+    IRevisionRepository revisionRepository = new RevisionRepository();
+    IRevisionService revisionService = new RevisionService(revisionRepository);
+    INotificationRepository notificationRepository = new NotificationRepository();
+    INotificationService notificationService = new NotificationService(notificationRepository);
+    
+    IDefectService defectService = new DefectService();
+    List<Defect> defects = defectService.defectWorkbenchByDate(LocalDate.now());
+
+    System.out.println("Today's defect workbench");
+    defects.forEach(d -> System.out.println(String.format("%s", d.toString())));
   }
-  
+      
 }

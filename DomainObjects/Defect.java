@@ -11,8 +11,9 @@ public class Defect
   private LocalDate notificationDateRequired;
   private Integer revisionId;
   private String revisionDescription;
-  private LocalDate revisionDate;
 
+  public Defect() {}
+  
   public Defect(
     Integer notificationId,
     String notificationDescription,
@@ -20,8 +21,7 @@ public class Defect
     NotificationCode notificationCode,
     LocalDate notificationDateRequired,
     Integer revisionId,
-    String revisionDescription,
-    LocalDate revisionDate
+    String revisionDescription
   ) {
     this.notificationId = notificationId;
     this.notificationDescription = notificationDescription;
@@ -30,39 +30,74 @@ public class Defect
     this.notificationDateRequired = notificationDateRequired;
     this.revisionId = revisionId;
     this.revisionDescription = revisionDescription;
-    this.revisionDate = revisionDate;
   }
 
   public Integer getNotificationId() {
     return this.notificationId;
   }
+
+  public void setNotificationId(Integer val) {
+    this.notificationId = val;
+  }
   
   public String getNotificationDescription() {
     return this.notificationDescription;
+  }
+
+  public void setNotificationDescription(String val) {
+    this.notificationDescription = val;
   }
   
   public String getAircraftRegistration() {
     return this.aircraftRegistration;
   }
+
+  public void setAircraftRegistration(String val) {
+    this.aircraftRegistration = val;
+  }
   
   public NotificationCode getNotificationCode() {
     return this.notificationCode;
+  }
+
+  public void setNotificationCode(NotificationCode val) {
+    this.notificationCode = val;
   }
   
   public LocalDate getNotificationDateRequired() {
     return this.notificationDateRequired;
   }
+
+  public void setNotificationDateRequired(LocalDate val) {
+    this.notificationDateRequired = val;
+  }
   
   public Integer getRevisionId() {
     return this.revisionId;
+  }
+
+  public void setRevisionId(Integer val) {
+    this.revisionId = val;
   }
   
   public String getRevisionDescription() {
     return this.revisionDescription;
   }
-  
-  public LocalDate getRevisionDate() {
-    return this.revisionDate;
+
+  public void setRevisionDescription(String val) {
+    this.revisionDescription = val;
+  }
+
+  @Override
+  public String toString() {
+    return String.format("%3s %-40s %-5s %4s %s %3s %-40s",
+                         this.notificationId,
+                         this.notificationDescription,
+                         this.aircraftRegistration,
+                         this.notificationCode,
+                         this.notificationDateRequired,
+                         this.revisionId,
+                         this.revisionDescription);
   }
   
 }

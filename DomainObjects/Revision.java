@@ -1,22 +1,19 @@
 package DomainObjects;
 
-import java.time.LocalDate;
+import java.util.List;
 
 public class Revision {
   private Integer id;
   private String description;
-  private LocalDate dateRaised;
   private String aircraftRegistration;
-  private Integer[] notificationIds;
+  private List<Integer> notificationIds;
 
   public Revision(Integer id,
                   String description,
-                  LocalDate dateRaised,
                   String aircraftRegistration,
-                  Integer[] notificationIds) {
+                  List<Integer> notificationIds) {
     this.id = id;
     this.description = description;
-    this.dateRaised = dateRaised;
     this.aircraftRegistration = aircraftRegistration;
     this.notificationIds = notificationIds;
   }
@@ -33,11 +30,7 @@ public class Revision {
     return this.aircraftRegistration;
   }
 
-  public LocalDate getDateRaised() {
-    return this.dateRaised;
-  }
-
-  public Integer[] getNotificationIds() {
+  public List<Integer> getNotificationIds() {
     return this.notificationIds;
   }
 }
