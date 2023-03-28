@@ -16,14 +16,17 @@ class Main {
   
   public static void main(String[] args) {
 
+    // set-up some services
     IRevisionRepository revisionRepository = new RevisionRepository();
     IRevisionService revisionService = new RevisionService(revisionRepository);
     INotificationRepository notificationRepository = new NotificationRepository();
     INotificationService notificationService = new NotificationService(notificationRepository);
-    
+
+    // create the defect service and fetch the defect workbench data
     IDefectService defectService = new DefectService();
     List<Defect> defects = defectService.defectWorkbenchByDate(LocalDate.now());
 
+    // display our temp view
     System.out.println("Today's defect workbench");
     defects.forEach(d -> System.out.println(String.format("%s", d.toString())));
   }
