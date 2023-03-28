@@ -9,10 +9,23 @@ import Services.Notifications.INotificationService;
 
 public class DefectService
     implements IDefectService {
-      
+  
   public List<Defect> defectWorkbenchByDate(LocalDate currentDate) {
-    // to do
-    return new ArrayList<Defect>();
+
+    List<Defect> defects = new ArrayList<Defect>();
+
+    // to do - some dummy data
+    Defect d = new Defect();
+    d.setNotificationId(1);
+    d.setNotificationDescription("description");
+    d.setAircraftRegistration("G-REG");
+    d.setNotificationCode(NotificationCode.D3);
+    d.setNotificationDateRequired(LocalDate.now());
+    d.setRevisionId(1);
+    d.setRevisionDescription("description");
+    defects.add(d);
+    
+    return defects;
   }
 
 }
